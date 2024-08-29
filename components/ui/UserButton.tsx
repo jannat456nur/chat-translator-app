@@ -12,8 +12,8 @@ import {
 import Useravatar from './Useravatar'
 import { Session } from 'next-auth'
 import { Button } from './button'
-import { signIn,signOut } from 'next-auth/react'
-
+import { signIn, signOut } from 'next-auth/react'
+// console
 function UserButton({ session }: { session: Session | null }) {
   if (!session) return (
     <Button variant={'outline'} onClick={() => signIn()}> Sign in</Button>
@@ -28,7 +28,7 @@ function UserButton({ session }: { session: Session | null }) {
         <DropdownMenuLabel>{session.user?.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem onClick={()=> signOut()}>Sign Out</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => signOut()}>Sign Out</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
 
