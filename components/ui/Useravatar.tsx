@@ -10,9 +10,9 @@ image,
 className}:
 
 {
-    name:string;
-    image?:string;
-    className?:string;
+    name?:string | null;
+    image?:string | null;
+    className?:string | null;
 }
 
 ) => {
@@ -21,7 +21,7 @@ className}:
     {image && (
         <Image
         src={image}
-        alt={name}
+        alt={name || "User name"}	
         width={40}
         height={40}
         className='rounded-full'

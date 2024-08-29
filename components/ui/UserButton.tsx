@@ -12,25 +12,23 @@ import {
 import Useravatar from './Useravatar'
 import { Session } from 'next-auth'
 import { Button } from './button'
-import { signIn } from 'next-auth/react'
+import { signIn,signOut } from 'next-auth/react'
 
 function UserButton({ session }: { session: Session | null }) {
   if (!session) return (
     <Button variant={'outline'} onClick={() => signIn()}> Sign in</Button>
   )
   //Session...
-  return (
+  return session && (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Useravatar name="Nurany Jannat" image="https://github.com/shadcn.png" />
+        <Useravatar name={session.user?.name} image={session.user?.image} />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuLabel>{session.user?.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Profile</DropdownMenuItem>
-        <DropdownMenuItem>Billing</DropdownMenuItem>
-        <DropdownMenuItem>Team</DropdownMenuItem>
-        <DropdownMenuItem>Subscription</DropdownMenuItem>
+
+        <DropdownMenuItem onClick={()=> signOut()}>Sign Out</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
 
