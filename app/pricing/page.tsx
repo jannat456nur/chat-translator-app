@@ -1,4 +1,6 @@
+import PricingCards from '@/components/ui/PricingCards'
 import React from 'react'
+
 
 const pricingPage = () => {
     return (
@@ -38,11 +40,13 @@ const pricingPage = () => {
                         </defs>
                     </svg>
                 </div>
+                <div className=' flow-root pb-24 sm:pb-32'>
+                    <div className='mt-8' >
+                        <PricingCards redirect={true} />
+                    </div>
+                </div>
+            </div>
 
-            </div>
-            <div className='flow-root bg-white pb-24 sm:pb-32'>
-                <div className='mt-80' />
-            </div>
 
         </div>
     )
